@@ -6,12 +6,12 @@
 
 
 	// send email
-
+	if ($('#ask-us-form').length) {
 	document.getElementById("ask-us-form").addEventListener("submit", function (e) {
 		e.preventDefault();
 		sendEmail(e.target);
 	  });
-
+	}
 	function sendEmail(form) {
 	var formData = new FormData(form);
 	var data = Object.fromEntries(formData);
@@ -22,7 +22,7 @@
 		Subject : data.subject,
 		Body : 'Email: ' + data.email + '\n\n' + data.message
 	}).then(
-	  message => alert(message)
+	  message => alert("Thank you for the feedback. " + message)
 	);
 
 	console.log();
